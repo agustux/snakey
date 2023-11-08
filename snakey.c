@@ -16,10 +16,13 @@ typedef struct spart {
  
 int move_snakey(WINDOW *win, int direction,
                 snakeypart snakey[]);
-    
  
 int main(int argc, char *argv[]) {  
+ 
 
+    WINDOW *snakeys_world;
+    int offsetx, offsety, i, ch;
+ 
     initscr();
     noecho();
     cbreak();
@@ -47,7 +50,7 @@ int main(int argc, char *argv[]) {
     int sbegx = (WORLD_WIDTH - SNAKEY_LENGTH) / 2;
     int sbegy = (WORLD_HEIGHT - 1) / 2;
  
-    for (int i = 0; i < SNAKEY_LENGTH; i++) {
+    for (i = 0; i < SNAKEY_LENGTH; i++) {
         snakey[i].x = sbegx + i;
         snakey[i].y = sbegy;
     }
