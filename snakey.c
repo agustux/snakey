@@ -5,7 +5,7 @@
 #define WORLD_WIDTH 50
 #define WORLD_HEIGHT 20
  
-#define SNAKEY_LENGTH 40
+#define SNAKEY_LENGTH 20
  
 enum direction { UP, DOWN, RIGHT, LEFT };
  
@@ -13,6 +13,8 @@ typedef struct spart {
     int x;
     int y;
 } snakeypart;
+
+
  
 int move_snakey(WINDOW *win, int direction,
                 snakeypart snakey[]);
@@ -29,7 +31,7 @@ int main(int argc, char *argv[]) {
     timeout(TICKRATE);
     keypad(stdscr, TRUE);
  
-    printw("PieceOfCakeSnake v. 1.0  -  Press x to quit...");
+    printw("SNAKEY v. 1.0  -  Press x to quit...");
  
     start_color();
     init_pair(1, COLOR_GREEN, COLOR_BLACK);
@@ -98,7 +100,7 @@ int move_snakey(WINDOW *win, int direction,
     // print the snake
     for (int i = 0; i < SNAKEY_LENGTH - 1; i++) {
         snakey[i] = snakey[i + 1];
-        mvwaddch(win, snakey[i].y, snakey[i].x, '#');
+        mvwaddch(win, snakey[i].y, snakey[i].x, '[');
     }
  
     int x = snakey[SNAKEY_LENGTH - 1].x;
